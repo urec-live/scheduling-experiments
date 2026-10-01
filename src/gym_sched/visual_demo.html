@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UREC Gym Lab</title>
+<style>
+:root{--ink:#252c40;--muted:#62697b;--line:#dce0e8;--blue:#335fd1;--orange:#b85620;--paper:#f6f7fb;--purple:#655389}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 'Avenir Next','Segoe UI',sans-serif}button,select,input{font:inherit}button,select{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);cursor:pointer}button:hover{border-color:var(--blue)}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #b083d5;outline-offset:3px}button:disabled{opacity:.45;cursor:default}.primary{background:var(--blue);color:white;border-color:var(--blue)}header{padding:24px 4vw 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:white}h1{font-size:26px;margin:0;font-weight:700;letter-spacing:-1px}header p{margin:2px 0 0;color:var(--muted);font-size:14px}.badge{padding:5px 12px;background:#ece7f6;border-radius:20px;color:var(--purple);font-size:13px}main{max-width:1440px;margin:auto;padding:26px 4vw}.intro{display:flex;align-items:start;justify-content:space-between;gap:24px;margin-bottom:20px}h2{font-size:24px;letter-spacing:-.5px;margin:0 0 6px}p{margin:0 0 12px}.intro p{color:var(--muted);max-width:650px}.mode{display:flex;gap:6px;white-space:nowrap}.mode button[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px}.floor-wrap{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden}.floor-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px}.floor-heading strong{font-size:15px}.floor-heading select{font-size:13px;padding:6px}.floor{position:relative;aspect-ratio:1.55;background:#ede7df;overflow:hidden}.floor svg{display:block;width:100%;height:100%}.floor text{font-family:inherit;fill:var(--ink)}.station{fill:#f4f6fa;stroke:#a9b2c4;stroke-width:2}.equipment{fill:#53617a;stroke:#29364e;stroke-width:2}.machine-label{font-size:18px;font-weight:600}.status{font-size:14px}.person circle{stroke:white;stroke-width:4}.person text{font-size:14px;font-weight:600;paint-order:stroke;stroke:#fff;stroke-width:4px}.person{cursor:pointer}.person[aria-pressed=true] circle{stroke:#252c40;stroke-width:5}.person:focus{outline:none}.person:focus circle{stroke:#9661c0;stroke-width:6}.person .body{stroke:none}.floor-caption{padding:11px 20px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}.controls{padding:16px 20px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}.clock{font-variant-numeric:tabular-nums;font-size:24px;font-weight:600;margin-left:auto}.speed{font-size:13px}.scrub{padding:0 20px 18px}input[type=range]{width:100%;accent-color:var(--blue)}.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.side{padding:4px 0}.side h3{font-size:20px;margin:0}.member-choice{display:flex;gap:8px;margin:12px 0 20px}.member-choice button[aria-pressed=true]{border-color:var(--blue);background:#eaf0ff}.member-name{display:flex;gap:9px;align-items:center}.dot{width:12px;height:12px;border-radius:50%;background:var(--blue)}.sub{color:var(--muted);font-size:13px}dl{margin:16px 0}dl>div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:10px 0}dt{color:var(--muted);font-size:14px}dd{margin:0;font-size:14px;text-align:right}.plan{padding-left:23px;font-size:14px}.plan li{padding:5px 0}.advice{background:#eaf0ff;border-left:3px solid var(--blue);padding:13px;font-size:14px;margin-top:20px}.below{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px}.below h3{margin:0 0 12px;font-size:18px}.log{list-style:none;padding:0;margin:0}.log li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}.log time{color:var(--muted);font-variant-numeric:tabular-nums;min-width:45px}table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:10px 5px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}th{font-weight:500;color:var(--muted)}.note{font-size:13px;color:var(--muted);margin-top:12px}details{margin-top:26px;padding:16px 0;border-top:1px solid var(--line);font-size:14px}summary{cursor:pointer;font-weight:600}details ul{max-width:850px;color:var(--muted)}.notice{min-height:48px;margin-bottom:14px;padding:10px 14px;background:#eeeaf5;color:#514568;border-radius:8px;font-size:14px}@media(max-width:950px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr;gap:0 25px}.side>h3,.member-choice{grid-column:1/-1}.intro{display:block}.mode{margin-top:16px}.below{grid-template-columns:1fr}}@media(max-width:550px){header{padding:16px}.badge{display:none}main{padding:20px 14px}.side{display:block}.floor-heading{padding:12px;font-size:12px}.floor-heading select{max-width:150px}.controls{padding:12px}.clock{font-size:20px}.mode{white-space:normal}.mode button{flex:1;font-size:14px}.floor{aspect-ratio:1.25}.below{gap:22px}.speed{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.profile{margin-top:28px;background:white;border:1px solid var(--line);border-radius:16px;padding:24px;scroll-margin-top:20px}.profile-header{display:flex;justify-content:space-between;gap:16px;align-items:start}.profile h3{margin:0;font-size:22px}.profile h4{margin:0 0 8px;font-size:16px}.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}.profile-grid section{min-width:0}.profile dl{margin:0}.profile dl>div{display:block;padding:9px 0}.profile dd{text-align:left;margin-top:3px;overflow-wrap:anywhere}.field-note{display:block;font-size:12px;color:var(--muted);margin-top:3px}.scope{font-size:12px;padding:3px 7px;border-radius:4px;background:#eaf0ff;color:#33528c;display:inline-block}.scope.assumption{background:#fff0e5;color:#8c4a1f}.scope.unset{background:#f0f1f4;color:var(--muted)}.profile-plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:16px}.profile-plan article{padding:16px;border:1px solid var(--line);border-radius:8px;min-width:0}.profile pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--paper);padding:16px;font-size:12px}.profile summary{padding:6px 0}.profile-link{margin-top:16px;width:100%}.profile .legend{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}.profile-heading{margin-top:28px!important}.profile p{max-width:85ch}.profile dd strong{font-weight:600}.profile-header button{white-space:nowrap}@media(max-width:950px){.profile-grid{grid-template-columns:1fr 1fr}}@media(max-width:550px){.profile{padding:16px}.profile-grid,.profile-plan{grid-template-columns:1fr}.profile-header{display:block}.profile-header button{margin-top:12px}}
+</style>
+<header><div><h1>UREC Gym Lab</h1><p>A small gym. One scheduling question.</p></div><span class="badge">Experiment 1 · S05 / S43</span></header>
+<main><p><a href="/configure">Configure gym size, arrivals and member profiles →</a></p>
+<section class="intro"><div><h2>What if Casey could change the order?</h2><p>Alex is using the leg press. Casey needs the leg press and cable row. Replay the same gym with one permission changed.</p></div><div class="mode" aria-label="Replay condition"><button id="fixed" aria-pressed="true">Fixed order</button><button id="flexible" aria-pressed="false">Reordering allowed</button></div></section>
+<div class="notice" id="notice" aria-live="polite"></div>
+<div class="layout"><section class="floor-wrap" aria-label="Gym replay">
+<div class="floor-heading"><strong>Training floor</strong><label>Machine labels <select id="view"><option value="truth">Actual state</option><option value="observed">Last sensor observation</option></select></label></div>
+<div class="floor"><svg viewBox="0 0 800 510" role="img" aria-labelledby="floor-title floor-desc"><title id="floor-title">Two-machine gym replay</title><desc id="floor-desc">Select a member to inspect their activity. Blue is Casey; orange is Alex; green is Sam in Experiment 3. Machine occupancy comes from simulator events.</desc>
+<defs><pattern id="boards" width="100" height="36" patternUnits="userSpaceOnUse"><rect width="100" height="36" fill="#ede7df"/><path d="M0 35H100 M0 0V36" stroke="#dcd4ca" stroke-width="1"/></pattern></defs>
+<rect x="25" y="20" width="750" height="465" rx="10" fill="url(#boards)" stroke="#c5bbce" stroke-width="14"/>
+<path d="M35 460H160" stroke="#ede7df" stroke-width="17"/><path d="M40 450V395H115" stroke="#a497b0" fill="none" stroke-width="2"/>
+<rect x="82" y="72" width="255" height="210" rx="16" class="station"/><rect x="462" y="72" width="255" height="210" rx="16" class="station"/>
+<g aria-hidden="true"><path d="M131 206L187 123H235L255 230H231L216 162L170 230H128Z" class="equipment"/><rect x="160" y="178" width="58" height="20" rx="5" fill="#98a6ba"/><path d="M252 118V204 M269 125V197" stroke="#29364e" stroke-width="10"/>
+<rect x="511" y="115" width="38" height="115" rx="5" class="equipment"/><path d="M530 120H636V178 M553 211H652" fill="none" stroke="#53617a" stroke-width="9"/><path d="M532 147L620 212" stroke="#a0abc0" stroke-width="3"/><rect x="593" y="206" width="49" height="16" rx="5" class="equipment"/></g>
+<text x="103" y="52" class="machine-label">A · Leg press</text><text x="481" y="52" class="machine-label">B · Cable row</text>
+<text id="status-A" x="103" y="263" class="status"></text><text id="status-B" x="481" y="263" class="status"></text>
+<rect x="435" y="388" width="253" height="50" rx="6" fill="#c8c0d6"/><path d="M453 390V437 M669 390V437" stroke="#998aa9" stroke-width="3"/><text x="447" y="465" font-size="15" fill="#62697b">Recovery bench</text>
+<text x="83" y="478" font-size="14">Entry / exit</text><text x="155" y="360" font-size="14">Waiting area</text>
+<g id="person-alex" class="person" role="button" tabindex="0" aria-label="Inspect Alex" aria-pressed="false"><circle r="23" fill="#b85620"/><circle cy="-5" r="7" fill="#fff" class="body"/><path d="M-10 12Q0-3 10 12" stroke="white" stroke-width="5" fill="none"/><text y="43" text-anchor="middle">Alex</text></g>
+<g id="person-casey" class="person" role="button" tabindex="0" aria-label="Inspect Casey" aria-pressed="true"><circle r="23" fill="#335fd1"/><circle cy="-5" r="7" fill="#fff" class="body"/><path d="M-10 12Q0-3 10 12" stroke="white" stroke-width="5" fill="none"/><text y="43" text-anchor="middle">Casey</text></g>
+<g id="person-sam" class="person" role="button" tabindex="0" aria-label="Inspect Sam" aria-pressed="false"><circle r="23" fill="#23816b"/><circle cy="-5" r="7" fill="#fff" class="body"/><path d="M-10 12Q0-3 10 12" stroke="white" stroke-width="5" fill="none"/><text y="43" text-anchor="middle">Sam</text></g>
+</svg></div>
+<div class="floor-caption">People show actual replay activity. Machine labels can show sensor evidence. Experiment 4 animates a fixed walking delay. Earlier experiments have instantaneous travel.</div>
+<div class="controls"><button class="primary" id="play">Play</button><button id="step">Next event</button><button id="reset">Restart</button><span class="clock" id="clock">0:00</span><label class="speed">Speed <select id="speed"><option value="10">10×</option><option value="30" selected>30×</option><option value="60">60×</option></select></label></div>
+<div class="scrub"><label class="sub" for="seek">Replay position</label><input id="seek" type="range" min="0" step="0.1" value="0"><div class="range-labels"><span>Casey is ready</span><span id="end-label"></span></div></div>
+</section>
+<aside class="side"><h3>Follow a member</h3><div class="member-choice"><button id="choose-casey" aria-pressed="true">Casey</button><button id="choose-sam" hidden aria-pressed="false">Sam</button><button id="choose-alex" aria-pressed="false">Alex</button></div><div><div class="member-name"><span class="dot" id="member-dot"></span><strong id="member-name"></strong></div><p class="sub" id="member-mode"></p><dl id="member-stats"></dl></div><div><strong>Exercise plan</strong><ol class="plan" id="plan"></ol><div class="advice" id="advice"></div></div></aside></div>
+<section class="profile" id="profile" aria-labelledby="profile-title"><div class="profile-header"><div><h3 id="profile-title">Member profile</h3><p class="note">Complete configuration for the selected simulated member. These are example profiles, not real accounts. Select a member above to switch.</p></div><button id="back-floor" aria-controls="profile">Close profile</button></div><div class="legend"><span class="scope">Active in this run</span><span class="scope assumption">Simulation assumption</span><span class="scope unset">Not configured / not modeled</span></div><p class="sub" id="profile-visibility"></p><div id="order-editor"><label for="experiment-setting">Experiment</label> <select id="experiment-setting"><option value="order">1 · Exercise order</option><option value="response">2 · Refusal / deviation probability</option><option value="competition">3 · Competing member</option><option value="race">4 · Walking and competing advice</option></select> <label for="order-setting" id="setting-label">Casey’s exercise-order setting</label> <select id="order-setting"><option value="fixed">Fixed order</option><option value="flexible">Reordering allowed</option></select> <div id="refusal-editor" hidden><label for="refusal-percent">Likely % to refuse/deviate</label> <input id="refusal-percent" type="number" min="0" max="100" step="1" value="50" style="width:90px"> %<p class="note">Chance of not following each recommendation. Here, deviation means declining advice and choosing independently; changes after acceptance are not modeled. Seed 42 keeps reruns reproducible.</p></div> <button id="run-experiment">Run experiment &amp; save</button><p id="run-status" role="status">Choose an experiment and condition, then run. Changes apply only after running.</p></div><div class="profile-grid" id="profile-fields"></div><h4 class="profile-heading">Exercise-by-exercise configuration</h4><p class="note">Equipment alternatives and exercise substitutions are separate permissions. An empty approval list does not authorize new exercises.</p><div class="profile-plan" id="profile-plan"></div><details><summary>Complete source configuration</summary><p class="note">All member fields and run settings, including latent simulation truth. This observer-only view does not provide extra information to the scheduling policy.</p><pre id="profile-source"></pre></details></section>
+<div class="below"><section><h3>What just happened</h3><ul class="log" id="log"></ul></section><section><h3>Completed run comparison</h3><table><thead><tr><th>Member outcome</th><th>Fixed</th><th>Reorder</th></tr></thead><tbody id="comparison"></tbody></table><p class="note">These are the two complete simulator runs, not a live forecast. Same exercises, durations and recovery; only order permission changes.</p></section></div>
+<details><summary>Assumptions and what comes next</summary><ul><li>Two machines; Experiment 3 adds Sam to the two-member workload. Alex starts one second before Casey arrives. The replay clock starts at Casey’s arrival.</li><li>FCFS selects from eligible choices. Casey follows advice in Experiment 1; Experiment 2 samples every response using refusal likelihood. No exercise substitutions or sensor errors. Only Experiment 4 adds walking time. Sam arrives at second 3 in Experiment 3 and alongside Casey in Experiment 4.</li><li>Each participant exercise occupies a machine for two minutes, followed by one minute of recovery if another exercise remains. Within-exercise sets and rest are aggregated.</li><li>Alex is an independent nonparticipant. His name and actions are visible to you as the experiment observer, not as a declared plan to the scheduler.</li><li>Both label views agree here because sensing is immediate; neither reserves a free machine for a walker. Predictions are not shown as actual release times.</li><li>This explains S05 and S43. Other spreadsheet scenarios are not implemented in this interface yet. Experiment 2 adds configurable refusal probability. Experiment 3 adds one competing member; Experiment 4 adds competing advice during walking; delayed sensing remains future work.</li><li>One constructed example demonstrates behavior, not general real-gym improvement. No production services or real member data are used.</li></ul></details>
+</main>
+<script id="simulation-data" type="application/json">/*__PAYLOAD__*/</script>
+<script>
+'use strict';
+let data=JSON.parse(document.getElementById('simulation-data').textContent);
+const $=id=>document.getElementById(id), names={alex:'Alex',casey:'Casey',sam:'Sam'};
+let mode='fixed', selected='casey', time=1, playing=false, lastFrame=null;
+const fmt=s=>`${Math.floor(Math.max(0,s)/60)}:${String(Math.floor(Math.max(0,s)%60)).padStart(2,'0')}`;
+const run=()=>data.runs[mode];
+const scenario=()=>data.scenarios?.[mode]||data.scenario;
+const responseExperiment=()=>['response','competition'].includes(data.experiment);
+const memberIds=()=>scenario().members.map(m=>m.id);
+const meaningful=new Set(['arrival','ready','recommendation','recommendation_issued','accepted','refused','exercise_started','exercise_completed','rest_started','departure','claim_failed','walking_started']);
+function snapshot(t){
+ const members=Object.fromEntries(memberIds().map(id=>[id,{state:'outside',done:[],unit:null,wait:0,advice:null}]));
+ const occupied={A:null,B:null},observed={A:null,B:null};let prev=0;
+ for(const e of run().events){if(e.time>t)break;
+  for(const m of Object.values(members))if(['ready','offered'].includes(m.state))m.wait+=e.time-prev;
+  prev=e.time;const m=members[e.member_id];
+  if(e.event==='observation')observed[e.equipment_id]=e;
+  if(!m)continue;
+  if(e.event==='arrival'||e.event==='ready')m.state='ready';
+  if(e.event==='recommendation'||e.event==='recommendation_issued'){m.advice=e.equipment_id;m.state='offered';}
+  if(e.event==='accepted')m.advice=e.equipment_id;
+  if(e.event==='refused'){m.advice=null;m.state='ready';}
+  if(e.event==='walking_started'){m.state='walking';m.unit=e.equipment_id;m.walkStart=e.time;m.walkDuration=e.duration_seconds;m.advice=null;}
+  if(e.event==='claim_failed'){m.state='ready';m.unit=null;m.advice=null;}
+  if(e.event==='exercise_started'){m.state='exercising';m.unit=e.equipment_id;occupied[e.equipment_id]=e.member_id;m.advice=null;}
+  if(e.event==='exercise_completed'){occupied[e.equipment_id]=null;m.done.push(e.visit_id);m.unit=null;}
+  if(e.event==='rest_started')m.state='rest';
+  if(e.event==='departure'){m.state='departed';m.advice=null;}
+ }
+ for(const m of Object.values(members))if(['ready','offered'].includes(m.state))m.wait+=t-prev;
+ return {members,occupied,observed};
+}
+function describe(e){const n=names[e.member_id]||'';switch(e.event){
+ case 'arrival':return `${n} enters the gym.`;case 'ready':return `${n} is ready to choose an exercise.`;
+ case 'recommendation':case 'recommendation_issued':return `${n} receives advice: machine ${e.equipment_id}.`;
+ case 'accepted':return `${n} accepts machine ${e.equipment_id}.`;case 'exercise_started':return `${n} starts ${e.exercise.toLowerCase()}.`;
+ case 'exercise_completed':return `${n} releases machine ${e.equipment_id}.`;case 'rest_started':return `${n} takes ${fmt(e.duration_seconds)} recovery.`;
+ case 'walking_started':return `${n} heads toward machine ${e.equipment_id} (${fmt(e.duration_seconds)} travel). It is not reserved.`;case 'departure':return `${n} finishes and leaves.`;case 'refused':return `${n} declines ${e.equipment_id} and chooses to keep the original plan order. Advice does not reserve the machine.`;case 'claim_failed':return `${n} reaches ${e.equipment_id}, finds it taken, and returns to independent choice.`;default:return '';}}
+function choose(id){selected=id;render();}
+const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let profileKey='';
+function renderProfile(spec){
+ if(profileKey===selected+mode)return;
+ profileKey=selected+mode;
+ const config=run().config, guided=spec.participates, percent=n=>`${Math.round(n*100)}%`;
+ const showTime=v=>v==null?'Not configured':fmt(v);
+ const row=(label,value,kind='active',note='')=>`<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)} <span class="scope ${kind==='assumption'?'assumption':kind==='unset'?'unset':''}">${kind==='active'?'Active':kind==='assumption'?'Assumption':'Not modeled / unset'}</span>${note?`<span class="field-note">${escapeHTML(note)}</span>`:''}</dd></div>`;
+ const group=(title,rows)=>`<section><h4>${title}</h4><dl>${rows.join('')}</dl></section>`;
+ $('order-editor').hidden=selected!=='casey';
+ $('profile-title').textContent=`${names[selected]}’s complete profile`;
+ $('profile-visibility').textContent=guided?`${names[selected]}’s declared plan is visible to the scheduler. Actual durations, willingness and patience are simulation-only truth.`:'Alex has no declared profile available to the scheduler. The plan below is the experiment’s hidden workload, visible only to you.';
+ $('profile-fields').innerHTML=[
+ group('Participation and visibility',[
+ row('Member ID',spec.id),row('Member mode',guided?'Time-focused':'Independent','assumption','This demo represents advice participation directly; the three-mode model is not implemented.'),
+ row('Independent choice follows original order',spec.independent_keep_plan_order?'Yes':'No','assumption'),row('Receives recommendations',guided?'Yes':'No'),row('Progress tracking',guided?'Intended for this member':'Not declared','unset','Tracking is not an independent setting in this experiment.'),
+ row('Identity available to scheduler',guided?'Member ID and declared plan':'No member telemetry'),row('Watch / BLE / beacon','Not specified','unset','No device connectivity or identity-detection model is active.')]),
+ group('Saved plan permissions',[
+ row('Effective exercise order',guided?(config.allow_reordering?'Reordering allowed':'Fixed order'):'Not declared to scheduler',guided?'active':'unset',guided?'Controlled by the saved experiment configuration.':'Independent behavior follows the scenario’s eligibility rules.'),
+ row('Partial order / locked groups',spec.visits.some(v=>v.predecessors.length)?'Declared prerequisites apply':'No additional prerequisites','active'),
+ row('Exercise substitutions',config.allow_substitutions?'Enabled for approved choices':'Disabled'),row('Approved alternative exercises',spec.visits.some(v=>Object.keys(v.alternative_exercise_by_equipment).length)?'See each exercise':'None'),
+ row('Equipment preference ranking','No ranking declared','unset','Only the listed compatible units may be used.'),row('Wait versus switch preference',spec.independent_keep_plan_order?'Keep original order when choosing independently':'No extra restriction','assumption','This behavior is hidden from the scheduling policy.')]),
+ group('Time and workout style',[
+ row('Arrival',fmt(spec.arrival_seconds)+' from simulation start','assumption','Replay time zero is Casey’s arrival at simulation second 1.'),
+ row('Departure deadline',showTime(spec.deadline_seconds),spec.deadline_seconds==null?'unset':'active'),
+ row('Workout time budget','Not configured','unset','Completion time is an outcome, not a saved target.'),
+ row('Partner / group','Solo in this experiment','assumption','Group membership and shared sets are not modeled.'),row('Circuit / superset','Consecutive exercises','assumption','Return visits and multi-station claims are not active.'),
+ row('Accessibility / equipment restrictions','Only declared compatible equipment','active','Reasons for these choices are not inferred.')]),
+ group('Behavior assumptions, not preferences',[
+ row('Accept advice',percent(spec.acceptance_probability),'assumption',guided?'Conditional on responding; true willingness is hidden from the scheduler.':'Inactive: Alex receives no advice.'),
+ row('Ignore advice',percent(spec.ignore_probability),'assumption',guided?'A separate probability from refusal.':'Inactive for this nonparticipant.'),
+ row('Acceptance multiplier for nonpreferred equipment',String(spec.nonpreferred_acceptance_multiplier),'assumption','Stored model value; no alternative equipment is available here.'),
+ row('Waiting patience',spec.patience_wait_seconds==null?'No abandonment threshold':fmt(spec.patience_wait_seconds),'assumption'),
+ row('Willingness change time',showTime(spec.preference_change_seconds),'assumption'),row('Changed acceptance probability',spec.changed_acceptance_probability==null?'No change configured':percent(spec.changed_acceptance_probability),'assumption'),
+ row('Deviation after acceptance','Not modeled','unset','This demo follows accepted advice; it does not simulate a later change of mind.')]),
+ group('Shared experiment conditions',[
+ row('Policy',run().policy,'assumption'),row('Walking time',fmt(config.walking_seconds),'assumption'),row('Response delay',fmt(config.response_delay_seconds),'assumption'),
+ row('Sensor delay',fmt(config.observation_delay_seconds),'assumption'),row('Lost observation probability',percent(config.observation_dropout),'assumption'),
+ row('Observation refresh interval',fmt(config.observation_interval_seconds),'assumption','Configured interval; periodic sensing depends on the engine’s delay/dropout rules.'),
+ row('Advice expires after',fmt(config.recommendation_expiry_seconds),'assumption'),row('Injected decision delay',fmt(config.decision_delay_seconds),'assumption')]),
+ group('Future profile fields',[
+ row('Experience / familiarity','Not specified','unset'),row('Training goals','Not specified','unset'),row('Preferred rest between sets','Not specified','unset'),
+ row('Notification preferences','Not specified','unset'),row('Approved alternatives ranked by comfort','Not specified','unset'),row('Time-saving priority / trade-off','Not specified','unset'),
+ row('Plan changes during workout','Not modeled','unset')])].join('');
+ const equipment=ids=>ids.map(id=>`${id} (${scenario().equipment.find(e=>e.id===id)?.kind||'Unknown'})`).join(', ');
+ $('profile-plan').innerHTML=spec.visits.map((v,i)=>`<article><h4>${i+1}. ${escapeHTML(v.exercise)}</h4><dl>${[
+ row('Visit ID',v.id),row('Approved equipment',equipment(v.equipment_ids)),row('Preferred equipment',v.preferred_equipment_ids.length?equipment(v.preferred_equipment_ids):'No preference declared'),
+ row('Approved exercise alternatives',Object.entries(v.alternative_exercise_by_equipment).map(([unit,exercise])=>`${exercise} on ${unit}`).join(', ')||'None'),
+ row('Prerequisites',v.predecessors.join(', ')||'None explicitly declared','active',config.allow_reordering?'Any visit with satisfied prerequisites can be chosen.':'Fixed-order run also enforces the listed sequence.'),
+ row('Sets / reps / weight','Not specified','unset','The engine models aggregate equipment occupancy, not individual sets.'),
+ row('Predicted occupancy',Object.entries(v.predicted_seconds).map(([unit,seconds])=>`${unit}: ${fmt(seconds)}`).join(', '),guided?'active':'assumption',guided?'Prediction supplied to the scenario, not a guarantee.':'Hidden workload value; the anonymous equipment forecast uses an engine fallback.'),
+ row('Actual sampled occupancy',Object.entries(v.actual_seconds).map(([unit,seconds])=>`${unit}: ${fmt(seconds)}`).join(', '),'assumption','Hidden from the scheduling policy.'),
+ row('Prediction uncertainty',Object.keys(v.uncertainty_seconds).length?JSON.stringify(v.uncertainty_seconds):'No per-unit uncertainty supplied','assumption'),
+ row('Recovery if another exercise remains',fmt(v.rest_after_seconds),'active','Equipment is released. This recovery is omitted after the final completed visit.'),
+ row('Substitution penalties',Object.keys(v.deviation_by_equipment).length?JSON.stringify(v.deviation_by_equipment):'None configured','assumption')].join('')}</dl></article>`).join('');
+ $('profile-source').textContent=JSON.stringify({member:spec,selected_run:mode,simulation:config,scenario_metadata:scenario().metadata},null,2);
+}
+function render(){
+ if(!memberIds().includes(selected)){selected='casey';profileKey='';}
+ const r=run(),s=snapshot(time),m=s.members[selected];
+ $('clock').textContent=fmt(time-1);$('seek').max=r.end_time-1;$('seek').value=time-1;$('end-label').textContent=fmt(r.end_time-1);
+ $('play').textContent=playing?'Pause':time>=r.end_time?'Replay':'Play';$('step').disabled=time>=r.end_time;
+ $('fixed').textContent=responseExperiment()?'0% refusal baseline':'Fixed order';
+ $('flexible').textContent=responseExperiment()?`${data.refusal_percent}% refusal`:'Reordering allowed';
+ document.querySelector('.intro h2').textContent=responseExperiment()?'How does refusal likelihood change Casey’s workout?':'What if Casey could change the order?';
+ document.querySelector('.intro p').textContent=responseExperiment()?'Both conditions allow reordering. Each recommendation is sampled using the saved refusal probability. After refusing, Casey chooses independently in the original plan order.':'Alex is using the leg press. Casey needs the leg press and cable row. Replay the same gym with one permission changed.';
+ document.querySelector('.badge').textContent=responseExperiment()?'Experiment 2 · Advice rejection':'Experiment 1 · S05 / S43';
+ if(data.experiment==='race'){ $('fixed').textContent='No walking time';$('flexible').textContent='10-second walk';document.querySelector('.intro h2').textContent='What if equipment becomes occupied while you walk?';document.querySelector('.intro p').textContent='Casey and Sam arrive together, each needing one cable-row exercise. Both always accept advice. Compare zero versus ten seconds of walking; sensing stays immediate.';document.querySelector('.badge').textContent='Experiment 4 · Walking conflict';}
+ if(data.experiment==='competition'){document.querySelector('.intro h2').textContent='Can Sam use the cable row when Casey refuses?';document.querySelector('.intro p').textContent='Sam arrives at simulation second 3, needs one cable-row exercise, and always accepts. Casey’s behavior stays the same.';document.querySelector('.badge').textContent='Experiment 3 · Competing member';}
+ for(const key of ['fixed','flexible'])$(key).setAttribute('aria-pressed',String(key===mode));
+ for(const id of ['alex','casey','sam']){$('person-'+id).style.display=memberIds().includes(id)?'':'none';$('choose-'+id).hidden=!memberIds().includes(id);}
+ for(const id of memberIds()){
+  const p=s.members[id],node=$('person-'+id);let pos=[id==='alex'?92:id==='sam'?212:152,418];
+  if(p.state==='exercising')pos=p.unit==='A'?[290,180]:[id==='sam'?720:676,180];else if(p.state==='rest')pos=[550,395];else if(['ready','offered'].includes(p.state))pos=[id==='alex'?195:id==='sam'?390:260,325];
+  if(p.state==='walking'){const from=id==='alex'?[92,418]:[id==='sam'?390:260,325],to=p.unit==='A'?[290,180]:[id==='sam'?720:676,180];const f=p.walkDuration?Math.max(0,Math.min(1,(time-p.walkStart)/p.walkDuration)):1;pos=from.map((v,i)=>v+(to[i]-v)*f);}
+  node.setAttribute('transform',`translate(${pos[0]} ${pos[1]})`);node.style.opacity=p.state==='departed'?'.32':'1';node.setAttribute('aria-pressed',String(id===selected));$('choose-'+id).setAttribute('aria-pressed',String(id===selected));
+ }
+ for(const id of ['A','B']){const o=s.observed[id];$('status-'+id).textContent=$('view').value==='truth'?(s.occupied[id]?`In use · ${names[s.occupied[id]]}`:'Available'):(o?(o.observed_available?'Observed available':'Observed occupied'):'No observation');}
+ $('member-name').textContent=names[selected];$('member-dot').style.background=selected==='casey'?'#335fd1':selected==='sam'?'#23816b':'#b85620';
+ $('member-mode').textContent=selected==='sam'?'Time-focused · always accepts':selected==='casey'?(responseExperiment()&&mode==='flexible'?'Time-focused · probabilistic compliance':'Time-focused · follows advice'):'Independent · unknown to scheduler';
+ const stateNames={ready:'Waiting for equipment',offered:'Considering advice',walking:'Moving to equipment',exercising:'Using machine '+m.unit,rest:'Recovering',departed:'Workout complete',outside:'Not arrived'};
+ const spec=scenario().members.find(x=>x.id===selected);
+ renderProfile(spec);
+ $('member-stats').innerHTML=[['Activity',stateNames[m.state]],['Waiting so far',fmt(m.wait)],['Completed',`${m.done.length} / ${spec.visits.length}`],['Order permission',selected==='alex'?'Not declared':r.config.allow_reordering?'Reordering allowed':'Fixed order']].map(([a,b])=>`<div><dt>${a}</dt><dd>${b}</dd></div>`).join('');
+ $('plan').innerHTML=spec.visits.map(v=>`<li>${v.exercise} ${m.done.includes(v.id)?'— complete':m.state==='exercising'&&v.equipment_ids.includes(m.unit)?'— in progress':'— remaining'}</li>`).join('');
+ $('advice').textContent=selected==='alex'?'No advice requested. Alex chooses independently.':m.state==='outside'?`${names[selected]} has not arrived yet.`:m.state==='departed'?'All planned exercises completed.':m.state==='walking'?`${names[selected]} is heading to ${m.unit}. Availability may change before arrival.`:m.state==='rest'?`Recover first. The next choice is made when ${names[selected]} is ready.`:m.state==='exercising'?`${names[selected]} is using ${m.unit}. Advice is not a reservation.`:m.advice?`Suggested next: ${m.advice}.`:`${names[selected]} waits for eligible equipment to become available.`;
+ $('notice').textContent=time>=r.end_time?'Replay complete. Compare the outcomes below, or switch order permission.':mode==='fixed'?'Casey must complete A before B. An available B cannot be used out of order.':'Casey may do B before A. Both original exercises and required recovery remain in the plan.';
+ if(responseExperiment()&&selected==='casey'&&m.state==='ready'&&run().events.some(e=>e.member_id==='casey'&&e.event==='refused'&&e.time<=time))$('advice').textContent='Casey chooses to wait for the leg press in the original plan order. Casey does not reserve the cable row.';
+ if(data.experiment==='race')$('notice').textContent='Advice does not reserve equipment. Physical start checks decide who can use it; a failed attempt returns the member to independent choice.';
+ if(responseExperiment())$('notice').textContent=`${mode==='fixed'?0:data.refusal_percent}% chance of refusing each recommendation. Refusal returns Casey to independent choice; advice never reserves equipment.`;
+ const events=r.events.filter(e=>e.time<=time&&meaningful.has(e.event)&&describe(e)).slice(-5).reverse();
+ $('log').innerHTML=events.map(e=>`<li><time>${e.time<1?'Before':fmt(e.time-1)}</time><span>${describe(e)}</span></li>`).join('');
+}
+function pause(){playing=false;lastFrame=null;}
+for(const key of ['fixed','flexible'])$(key).onclick=()=>{pause();mode=key;time=1;render();};
+for(const id of ['alex','casey','sam']){$('choose-'+id).onclick=()=>choose(id);$('person-'+id).onclick=()=>choose(id);$('person-'+id).onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(id);}};}
+$('play').onclick=()=>{if(playing)pause();else{if(time>=run().end_time)time=1;playing=true;lastFrame=null;}render();};
+$('reset').onclick=()=>{pause();time=1;render();};
+$('step').onclick=()=>{pause();const next=run().events.find(e=>e.time>time+1e-6&&meaningful.has(e.event));time=next?next.time:run().end_time;render();};
+$('seek').oninput=()=>{pause();time=1+Number($('seek').value);render();};$('view').onchange=render;
+$('back-floor').onclick=()=>{$('profile').hidden=true;profileButton.setAttribute('aria-expanded','false');profileButton.focus();};
+const profileButton=document.createElement('button');profileButton.textContent='View complete profile';profileButton.className='profile-link';profileButton.setAttribute('aria-controls','profile');profileButton.setAttribute('aria-expanded','true');profileButton.onclick=()=>{pause();$('profile').hidden=false;profileButton.setAttribute('aria-expanded','true');render();$('profile').scrollIntoView();$('back-floor').focus({preventScroll:true});};$('advice').after(profileButton);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){pause();render();}});
+function tick(now){if(playing){if(lastFrame!==null)time=Math.min(run().end_time,time+Math.min((now-lastFrame)/1000,.2)*Number($('speed').value));lastFrame=now;if(time>=run().end_time)pause();render();}requestAnimationFrame(tick);}
+function renderComparison(){
+ const headers=document.querySelectorAll('.below table th');headers[1].textContent=responseExperiment()?'0% baseline':'Fixed';headers[2].textContent=responseExperiment()?`${data.refusal_percent}% refusal`:'Reorder';
+ if(!responseExperiment())headers[1].textContent='Fixed';
+ if(data.experiment==='race'){headers[1].textContent='0-second walk';headers[2].textContent='10-second walk';}
+ document.querySelector('.below table + p').textContent=responseExperiment()?'Complete simulator runs with identical work, recovery, and one-second responses. Configured refusal chance applies to every recommendation; the baseline is 0%. Waiting includes response time.':'These are the two complete simulator runs, not a live forecast. Same exercises, durations and recovery; only order permission changes.';
+if(data.experiment==='race')document.querySelector('.below table + p').textContent='Same arrivals, exercises, one-second responses, and 100% acceptance. Walking time changes for all members, including Alex. Waiting excludes walking; both count toward total time. Casey wins this seeded ordering, not a fairness guarantee.';
+const summaries=['fixed','flexible'].map(k=>data.runs[k].member_summaries.find(m=>m.member_id==='casey'));
+$('comparison').innerHTML=[['Casey · waiting',...summaries.map(m=>fmt(m.waiting_seconds))],['Casey · time in gym',...summaries.map(m=>fmt(m.departure-m.arrival))],['Exercises complete',...summaries.map(m=>`${m.completed_visits} / ${m.total_visits}`)],['Recovery',...summaries.map(m=>fmt(m.rest_seconds))]].map(row=>`<tr>${row.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('');
+ if(['competition','race'].includes(data.experiment)){
+  const sam=['fixed','flexible'].map(k=>data.runs[k].member_summaries.find(m=>m.member_id==='sam'));
+  $('comparison').innerHTML+=[['Sam · waiting',...sam.map(m=>fmt(m.waiting_seconds))],['Sam · time in gym',...sam.map(m=>fmt(m.departure-m.arrival))],['Sam · failed starts',...sam.map(m=>m.failed_claims)]].map(row=>`<tr>${row.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('');
+ }
+
+}
+$('refusal-percent').oninput=()=>{$('run-status').textContent='Configuration changed. Run experiment & save to apply.';};
+$('experiment-setting').onchange=()=>{
+ const response=['response','competition'].includes($('experiment-setting').value);
+ const race=$('experiment-setting').value==='race';
+ $('setting-label').hidden=response||race;$('order-setting').hidden=response||race;
+ $('refusal-editor').hidden=!response;
+ $('run-status').textContent='Configuration changed. Run experiment & save to apply.';
+};
+$('run-experiment').onclick=async()=>{
+ pause();if(['response','competition'].includes($('experiment-setting').value)&&(!$('refusal-percent').checkValidity()||$('refusal-percent').value==='')){$('run-status').textContent='Enter a refusal percentage from 0 to 100.';return;}const button=$('run-experiment');button.disabled=true;
+ $('run-status').textContent='Running the simulator…';
+ try{
+  const response=await fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({order:$('experiment-setting').value!=='order'?'flexible':$('order-setting').value,experiment:$('experiment-setting').value,refusal_percent:$('experiment-setting').value==='race'?0:Number($('refusal-percent').value)})});
+  if(!response.ok)throw new Error('Run failed. Start the interactive visual_server to run and save experiments.');
+  const next=await response.json();data=next;mode=next.selected_order;time=1;profileKey='';renderComparison();render();
+  $('run-status').textContent=`Saved ${next.saved_run}. Replay uses ${data.experiment==='race'?'10-second walking time':responseExperiment()?`${mode==='fixed'?0:data.refusal_percent}% refusal likelihood`:(mode==='fixed'?'fixed order':'reordering allowed')}.`;
+ }catch(error){$('run-status').textContent=error.message;}
+ finally{button.disabled=false;}
+};
+$('experiment-setting').value=data.experiment||'order';$('refusal-percent').value=data.refusal_percent??50;$('experiment-setting').onchange();
+renderComparison();render();requestAnimationFrame(tick);
+</script>
+</html>

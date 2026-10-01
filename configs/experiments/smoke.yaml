@@ -1,0 +1,14 @@
+id: smoke
+output: outputs/experiments/smoke
+baseline: fcfs
+bootstrap_resamples: 200
+latency_budget_seconds: 0.1
+scenario_configs:
+  deterministic: ../scenarios/demo.yaml
+  advisory: ../scenarios/advisory.yaml
+policy_config: ../policies/defaults.yaml
+policies: [self_directed, fcfs, spt, aging, matching, robust, cpsat, ga]
+splits:
+  train: [42, 43]
+  validation: [1042, 1043]
+  test: [2042, 2043]

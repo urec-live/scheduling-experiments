@@ -1,0 +1,26 @@
+scenario:
+  id: stochastic
+  equipment_types: 4
+  units_per_type: 2
+  member_count: 40
+  visits_per_member: 4
+  arrival_window_seconds: 7200
+  arrival_pattern: poisson
+  duration_seconds: [240, 360, 480, 600]
+  pace_cv: 0.15
+  duration_cv: 0.3
+  prediction_bias: 0
+  prediction_noise_cv: 0.15
+  adoption_rate: 1
+  acceptance_probability: 1
+  ignore_probability: 0
+  rest_seconds: 60
+  metadata:
+    split: development
+    purpose: duration uncertainty independent of forecast noise
+simulation:
+  response_delay_seconds: 0
+  walking_seconds: 0
+  observation_delay_seconds: 0
+  observation_interval_seconds: 30
+  recommendation_expiry_seconds: 30

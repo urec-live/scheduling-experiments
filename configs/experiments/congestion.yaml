@@ -1,0 +1,12 @@
+id: congestion
+output: outputs/experiments/congestion
+baseline: fcfs
+scenario_configs:
+  crowd: ../scenarios/stochastic.yaml
+policy_config: ../policies/defaults.yaml
+policies: [fcfs, spt, aging, matching, robust]
+parameter_grid:
+  scenario.member_count: [10, 20, 40]
+splits:
+  train: [400, 401, 402]
+  validation: [1400, 1401, 1402]

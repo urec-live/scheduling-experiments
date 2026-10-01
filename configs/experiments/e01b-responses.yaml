@@ -1,0 +1,35 @@
+# Small teaching example, not a replicated study. Percentage means members,
+# not repeated random decisions by each member. All are eligible for advice.
+id: E01-B-responses
+output: outputs/e01b-responses
+baseline: self_directed
+policies: [self_directed, fcfs]
+splits:
+  train: [42]
+scenario_configs:
+  all_accept:
+    scenario:
+      <<: &workload
+        id: e01b-responses
+        equipment_types: 1
+        units_per_type: 2
+        member_count: 4
+        visits_per_member: 1
+        arrival_pattern: even
+        arrival_batch_size: 4
+        arrival_window_seconds: 600
+        duration_seconds: [60]
+        member_pace_factors: [1]
+        rest_seconds: 0
+        adoption_rate: 1
+        acceptance_model: member_cohort
+        metadata: {workbook_scenario: S04, purpose: small no-delay response example}
+      acceptor_fraction: 1
+  all_refuse:
+    scenario:
+      <<: *workload
+      acceptor_fraction: 0
+  half_accept:
+    scenario:
+      <<: *workload
+      acceptor_fraction: 0.5

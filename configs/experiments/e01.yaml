@@ -1,0 +1,98 @@
+# Workbook: Experiment plan!A6:J6; Scenario matrix rows 6, 9, 22, 23.
+# Synthetic development pilot. Fixed durations, fresh sensing, fixed visit order.
+id: E01
+output: outputs/experiments/e01-train
+baseline: fcfs
+bootstrap_resamples: 2000
+latency_budget_seconds: 0.1
+policy_config: ../policies/defaults.yaml
+policies: [self_directed, fcfs, spt, matching, robust]
+splits:
+  train: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+  validation: [1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071]
+# No final test seeds until pilot precision and validation choices are reviewed.
+scenario_configs:
+  S01_quiet:
+    scenario:
+      <<: &workload
+        equipment_types: 2
+        units_per_type: 2
+        member_count: 24
+        visits_per_member: 2
+        arrival_window_seconds: 3600
+        arrival_pattern: poisson
+        duration_seconds: [120, 180]
+        pace_cv: 0
+        duration_cv: 0
+        prediction_bias: 0
+        prediction_noise_cv: 0
+        adoption_rate: 1
+        acceptance_probability: 1
+        ignore_probability: 0
+        rest_seconds: 60
+        flexible_precedence: false
+        allow_substitutions: false
+      id: e01-s01
+      arrival_window_seconds: 14400
+      metadata: {workbook_scenario: S01, purpose: low-load control}
+    simulation: &dynamics
+      response_delay_seconds: 0
+      walking_seconds: 0
+      observation_delay_seconds: 0
+      observation_dropout: 0
+      allow_reordering: false
+      allow_substitutions: false
+  S04_accept_060:
+    scenario:
+      <<: *workload
+      id: e01-s04
+      acceptance_probability: 0.6
+      metadata: {workbook_scenario: S04, purpose: optional advice refusals}
+    simulation: *dynamics
+  S04_accept_080:
+    scenario:
+      <<: *workload
+      id: e01-s04
+      acceptance_probability: 0.8
+      metadata: {workbook_scenario: S04, purpose: optional advice refusals}
+    simulation: *dynamics
+  S04_accept_095:
+    scenario:
+      <<: *workload
+      id: e01-s04
+      acceptance_probability: 0.95
+      metadata: {workbook_scenario: S04, purpose: optional advice refusals}
+    simulation: *dynamics
+  S17_walk_005:
+    scenario: &walking_workload
+      <<: *workload
+      id: e01-s17
+      adoption_rate: 0.5
+      metadata: {workbook_scenario: S17, purpose: independent and guided access contention}
+    simulation: {<<: *dynamics, walking_seconds: 5}
+  S17_walk_030:
+    scenario: *walking_workload
+    simulation: {<<: *dynamics, walking_seconds: 30}
+  S17_walk_060:
+    scenario: *walking_workload
+    simulation: {<<: *dynamics, walking_seconds: 60}
+  S18_batch_2:
+    scenario:
+      <<: &batch_workload
+        <<: *workload
+        id: e01-s18
+        arrival_pattern: poisson_batches
+        member_pace_factors: [1.0]
+        metadata: {workbook_scenario: S18, purpose: simultaneous readiness and releases}
+      arrival_batch_size: 2
+    simulation: *dynamics
+  S18_batch_4:
+    scenario:
+      <<: *batch_workload
+      arrival_batch_size: 4
+    simulation: *dynamics
+  S18_batch_8:
+    scenario:
+      <<: *batch_workload
+      arrival_batch_size: 8
+    simulation: *dynamics

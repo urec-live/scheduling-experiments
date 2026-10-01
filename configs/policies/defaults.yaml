@@ -1,0 +1,53 @@
+# Development settings. Freeze selected settings before opening final test episodes.
+self_directed: {}
+fcfs: {}
+spt: {}
+aging:
+  age_weight: 1.0
+matching:
+  age_weight: 1.0
+  deviation_penalty_seconds: 60.0
+robust:
+  age_weight: 1.0
+  deviation_penalty_seconds: 60.0
+  acceptance: true
+  uncertainty: true
+  stability: true
+  refusal_cost_seconds: 0.0
+  uncertainty_weight: 1.0
+  observation_age_weight: 0.25
+  change_penalty_seconds: 15.0
+  minimum_change_benefit_seconds: 0.0
+  unknown_busy_seconds: 300.0
+# Named ablations set their three switches in the factory; never override those switches.
+robust_a0u0s0: &ablation
+  age_weight: 1.0
+  deviation_penalty_seconds: 60.0
+  refusal_cost_seconds: 0.0
+  uncertainty_weight: 1.0
+  observation_age_weight: 0.25
+  change_penalty_seconds: 15.0
+  minimum_change_benefit_seconds: 0.0
+  unknown_busy_seconds: 300.0
+robust_a0u0s1: *ablation
+robust_a0u1s0: *ablation
+robust_a0u1s1: *ablation
+robust_a1u0s0: *ablation
+robust_a1u0s1: *ablation
+robust_a1u1s0: *ablation
+robust_a1u1s1: *ablation
+cpsat:
+  time_limit_seconds: 0.1
+  deterministic_time_limit: 0.05
+  time_resolution_seconds: 0.001
+  unknown_busy_seconds: 300.0
+ga:
+  population_size: 32
+  tournament_size: 3
+  elites: 2
+  crossover_probability: 0.8
+  mutation_probability: 0.2
+  budget_mode: evaluations
+  max_evaluations: 256
+  time_limit_seconds: 0.1
+  unknown_busy_seconds: 300.0

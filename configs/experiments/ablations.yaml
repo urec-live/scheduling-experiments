@@ -1,0 +1,10 @@
+id: mechanism-ablations
+output: outputs/experiments/ablations
+baseline: matching
+scenario_configs:
+  advisory: ../scenarios/advisory.yaml
+policy_config: ../policies/defaults.yaml
+policies: [matching, robust_a0u0s0, robust_a0u0s1, robust_a0u1s0, robust_a0u1s1, robust_a1u0s0, robust_a1u0s1, robust_a1u1s0, robust_a1u1s1]
+splits:
+  train: [300, 301, 302]
+  validation: [1300, 1301, 1302]

@@ -1,0 +1,28 @@
+# Flexibility is a separate experiment: change the workload and allowed actions together.
+scenario:
+  id: flexibility
+  equipment_types: 4
+  units_per_type: 2
+  member_count: 40
+  visits_per_member: 4
+  arrival_window_seconds: 7200
+  arrival_pattern: burst
+  duration_seconds: [240, 360, 480, 600]
+  pace_cv: 0.15
+  duration_cv: 0.3
+  prediction_noise_cv: 0.15
+  adoption_rate: 1
+  acceptance_probability: 0.8
+  rest_seconds: 60
+  flexible_precedence: true
+  allow_substitutions: true
+  metadata:
+    split: development
+    purpose: exploratory order and approved substitution flexibility
+simulation:
+  allow_reordering: true
+  allow_substitutions: true
+  response_delay_seconds: 5
+  walking_seconds: 5
+  observation_delay_seconds: 5
+  recommendation_expiry_seconds: 30

@@ -1,0 +1,36 @@
+# Reproducible debugging scenario; these are synthetic, uncalibrated assumptions.
+scenario:
+  id: demo
+  equipment_types: 4
+  units_per_type: 2
+  member_count: 20
+  visits_per_member: 4
+  arrival_window_seconds: 7200
+  arrival_pattern: even
+  duration_seconds: [240, 360, 480, 600]
+  pace_cv: 0
+  duration_cv: 0
+  prediction_bias: 0
+  prediction_noise_cv: 0
+  adoption_rate: 1
+  acceptance_probability: 1
+  ignore_probability: 0
+  rest_seconds: 60
+  flexible_precedence: false
+  allow_substitutions: false
+  metadata:
+    split: development
+    purpose: deterministic simulator debugging
+simulation:
+  response_delay_seconds: 0
+  walking_seconds: 0
+  observation_delay_seconds: 0
+  observation_dropout: 0
+  observation_interval_seconds: 30
+  recommendation_expiry_seconds: 30
+  decision_delay_seconds: 0
+  allow_reordering: false
+  allow_substitutions: false
+  max_time_seconds: 86400
+  max_events: 200000
+  max_same_time_rounds: 100

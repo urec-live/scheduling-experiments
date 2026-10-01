@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "id": "e01a-quiet-three-members",
+  "seed": 42,
+  "arrival_window_seconds": 600,
+  "equipment": [
+    {"id": "machine-1", "kind": "equivalent-unit"},
+    {"id": "machine-2", "kind": "equivalent-unit"}
+  ],
+  "members": [
+    {
+      "id": "A", "arrival_seconds": 0,
+      "participates": true, "acceptance_probability": 1, "ignore_probability": 0,
+      "visits": [{
+        "id": "visit-1", "equipment_ids": ["machine-1", "machine-2"],
+        "preferred_equipment_ids": ["machine-1", "machine-2"],
+        "actual_seconds": {"machine-1": 240, "machine-2": 240},
+        "predicted_seconds": {"machine-1": 240, "machine-2": 240},
+        "rest_after_seconds": 0
+      }]
+    },
+    {
+      "id": "B", "arrival_seconds": 60,
+      "participates": true, "acceptance_probability": 1, "ignore_probability": 0,
+      "visits": [{
+        "id": "visit-1", "equipment_ids": ["machine-1", "machine-2"],
+        "preferred_equipment_ids": ["machine-1", "machine-2"],
+        "actual_seconds": {"machine-1": 240, "machine-2": 240},
+        "predicted_seconds": {"machine-1": 240, "machine-2": 240},
+        "rest_after_seconds": 0
+      }]
+    },
+    {
+      "id": "C", "arrival_seconds": 360,
+      "participates": true, "acceptance_probability": 1, "ignore_probability": 0,
+      "visits": [{
+        "id": "visit-1", "equipment_ids": ["machine-1", "machine-2"],
+        "preferred_equipment_ids": ["machine-1", "machine-2"],
+        "actual_seconds": {"machine-1": 120, "machine-2": 120},
+        "predicted_seconds": {"machine-1": 120, "machine-2": 120},
+        "rest_after_seconds": 0
+      }]
+    }
+  ],
+  "metadata": {
+    "synthetic": true,
+    "split": "development",
+    "workbook_scenario": "S01",
+    "purpose": "E01-A teaching fixture: zero waiting independently and with FCFS advice",
+    "participation_note": "self_directed suppresses guidance for everyone; FCFS uses full participation on the identical saved workload"
+  }
+}

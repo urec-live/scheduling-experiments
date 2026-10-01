@@ -1,0 +1,31 @@
+scenario:
+  id: advisory # Unique identifier for this scenario.
+  equipment_types: 4 # Number of distinct equipment categories.
+  units_per_type: 2 # Number of available units in each equipment category.
+  member_count: 40 # Number of members participating in the simulation.
+  visits_per_member: 4 # Number of visits generated for each member.
+  arrival_window_seconds: 7200 # Time span over which members arrive, in seconds.
+  arrival_pattern: burst # Pattern used to distribute arrivals over the arrival window.
+  duration_seconds: [240, 360, 480, 600] # Possible visit durations, in seconds.
+  pace_cv: 0.15 # Coefficient of variation for member arrival pace.
+  duration_cv: 0.3 # Coefficient of variation for visit durations.
+  prediction_bias: 0 # Systematic offset applied to predicted visit durations.
+  prediction_noise_cv: 0.15 # Coefficient of variation for prediction noise.
+  adoption_rate: 0.5 # Fraction of members who use recommendations.
+  acceptance_probability: 0.8 # Probability an offered recommendation is accepted.
+  ignore_probability: 0.1 # Probability a member ignores an offered recommendation.
+  deadline_after_seconds: 3600 # Time after which a recommendation expires or becomes invalid.
+  patience_wait_seconds: 1200 # Maximum time a member waits for service, in seconds.
+  rest_seconds: 60 # Rest time between visits, in seconds.
+  metadata:
+    split: development # Dataset or experiment split associated with this scenario.
+    purpose: combined human response and stale-observation stress case # Scenario intent.
+simulation:
+  response_delay_seconds: 5 # Delay before a member responds to a recommendation, in seconds.
+  walking_seconds: 5 # Time required to walk between locations, in seconds.
+  observation_delay_seconds: 5 # Delay before observations become available, in seconds.
+  observation_dropout: 0.05 # Probability that an observation is missing.
+  observation_interval_seconds: 30 # Interval between successive observations, in seconds.
+  recommendation_expiry_seconds: 30 # Time before an unaccepted recommendation expires, in seconds.
+  decision_delay_seconds: 1 # Processing delay before making a scheduling decision, in seconds.
+  max_time_seconds: 14400 # Maximum duration of the simulation, in seconds.

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "id": "visual-two-members",
+  "seed": 42,
+  "arrival_window_seconds": 2.0,
+  "equipment": [
+    {
+      "id": "A",
+      "kind": "Leg press",
+      "x": 0.0,
+      "y": 0.0,
+      "outages": []
+    },
+    {
+      "id": "B",
+      "kind": "Cable row",
+      "x": 0.0,
+      "y": 0.0,
+      "outages": []
+    }
+  ],
+  "members": [
+    {
+      "id": "alex",
+      "arrival_seconds": 0.0,
+      "visits": [
+        {
+          "id": "a0",
+          "exercise": "Leg press",
+          "equipment_ids": [
+            "A"
+          ],
+          "actual_seconds": {
+            "A": 181.0
+          },
+          "predicted_seconds": {
+            "A": 181.0
+          },
+          "uncertainty_seconds": {},
+          "preferred_equipment_ids": [],
+          "deviation_by_equipment": {},
+          "alternative_exercise_by_equipment": {},
+          "rest_after_seconds": 60.0,
+          "predecessors": []
+        }
+      ],
+      "participates": false,
+      "deadline_seconds": null,
+      "acceptance_probability": 1.0,
+      "nonpreferred_acceptance_multiplier": 0.7,
+      "ignore_probability": 0.0,
+      "patience_wait_seconds": null,
+      "preference_change_seconds": null,
+      "changed_acceptance_probability": null
+    },
+    {
+      "id": "casey",
+      "arrival_seconds": 1.0,
+      "visits": [
+        {
+          "id": "cA",
+          "exercise": "Leg press",
+          "equipment_ids": [
+            "A"
+          ],
+          "actual_seconds": {
+            "A": 120.0
+          },
+          "predicted_seconds": {
+            "A": 120.0
+          },
+          "uncertainty_seconds": {},
+          "preferred_equipment_ids": [],
+          "deviation_by_equipment": {},
+          "alternative_exercise_by_equipment": {},
+          "rest_after_seconds": 60.0,
+          "predecessors": []
+        },
+        {
+          "id": "cB",
+          "exercise": "Cable row",
+          "equipment_ids": [
+            "B"
+          ],
+          "actual_seconds": {
+            "B": 120.0
+          },
+          "predicted_seconds": {
+            "B": 120.0
+          },
+          "uncertainty_seconds": {},
+          "preferred_equipment_ids": [],
+          "deviation_by_equipment": {},
+          "alternative_exercise_by_equipment": {},
+          "rest_after_seconds": 60.0,
+          "predecessors": []
+        }
+      ],
+      "participates": true,
+      "deadline_seconds": null,
+      "acceptance_probability": 1.0,
+      "nonpreferred_acceptance_multiplier": 0.7,
+      "ignore_probability": 0.0,
+      "patience_wait_seconds": null,
+      "preference_change_seconds": null,
+      "changed_acceptance_probability": null
+    }
+  ],
+  "metadata": {
+    "synthetic": true,
+    "matrix_scenarios": [
+      "S05",
+      "S43"
+    ]
+  }
+}

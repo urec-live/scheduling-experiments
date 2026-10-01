@@ -1,0 +1,12 @@
+id: observation-delay
+output: outputs/experiments/observation
+baseline: matching
+scenario_configs:
+  delay: ../scenarios/advisory.yaml
+policy_config: ../policies/defaults.yaml
+policies: [matching, robust_a1u0s1, robust_a1u1s1]
+parameter_grid:
+  simulation.observation_delay_seconds: [0, 5, 30]
+splits:
+  train: [500, 501, 502]
+  validation: [1500, 1501, 1502]

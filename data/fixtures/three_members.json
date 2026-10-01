@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "id": "hand-calculated-six-two-four",
+  "seed": 42,
+  "arrival_window_seconds": 7200,
+  "equipment": [{"id": "unit-1", "kind": "generic"}],
+  "members": [
+    {
+      "id": "member-001",
+      "arrival_seconds": 0,
+      "visits": [{"id": "visit-1", "exercise": "exercise", "equipment_ids": ["unit-1"], "actual_seconds": {"unit-1": 360}, "predicted_seconds": {"unit-1": 360}, "rest_after_seconds": 0}]
+    },
+    {
+      "id": "member-002",
+      "arrival_seconds": 0,
+      "visits": [{"id": "visit-1", "exercise": "exercise", "equipment_ids": ["unit-1"], "actual_seconds": {"unit-1": 120}, "predicted_seconds": {"unit-1": 120}, "rest_after_seconds": 0}]
+    },
+    {
+      "id": "member-003",
+      "arrival_seconds": 0,
+      "visits": [{"id": "visit-1", "exercise": "exercise", "equipment_ids": ["unit-1"], "actual_seconds": {"unit-1": 240}, "predicted_seconds": {"unit-1": 240}, "rest_after_seconds": 0}]
+    }
+  ],
+  "metadata": {"split": "development", "purpose": "FCFS mean wait 280 seconds; SPT mean wait 160 seconds"}
+}

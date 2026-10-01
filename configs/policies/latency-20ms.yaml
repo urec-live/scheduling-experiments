@@ -1,0 +1,7 @@
+# Planner limits, not guarantees for total observation-to-decision latency.
+cpsat:
+  time_limit_seconds: 0.02
+  deterministic_time_limit: 0.05
+ga:
+  budget_mode: wall
+  time_limit_seconds: 0.02

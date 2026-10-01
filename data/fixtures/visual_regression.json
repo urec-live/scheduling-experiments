@@ -1,0 +1,218 @@
+{
+  "order": {
+    "refusal_percent": 0,
+    "conditions": {
+      "fixed": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 181,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 180,
+          "completion_time_seconds": 480,
+          "rest_seconds": 60,
+          "walking_seconds": 0,
+          "completed_visits": 2,
+          "refused": 0,
+          "failed_claims": 0
+        }
+      },
+      "flexible": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 181,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 300,
+          "rest_seconds": 60,
+          "walking_seconds": 0,
+          "completed_visits": 2,
+          "refused": 0,
+          "failed_claims": 0
+        }
+      }
+    }
+  },
+  "response": {
+    "refusal_percent": 100,
+    "conditions": {
+      "fixed": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 181,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 2,
+          "completion_time_seconds": 302,
+          "rest_seconds": 60,
+          "walking_seconds": 0,
+          "completed_visits": 2,
+          "refused": 0,
+          "failed_claims": 0
+        }
+      },
+      "flexible": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 181,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 181,
+          "completion_time_seconds": 481,
+          "rest_seconds": 60,
+          "walking_seconds": 0,
+          "completed_visits": 2,
+          "refused": 2,
+          "failed_claims": 0
+        }
+      }
+    }
+  },
+  "competition": {
+    "refusal_percent": 100,
+    "conditions": {
+      "fixed": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 181,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 2,
+          "completion_time_seconds": 302,
+          "rest_seconds": 60,
+          "walking_seconds": 0,
+          "completed_visits": 2,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "sam": {
+          "waiting_seconds": 120,
+          "completion_time_seconds": 240,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        }
+      },
+      "flexible": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 181,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 181,
+          "completion_time_seconds": 481,
+          "rest_seconds": 60,
+          "walking_seconds": 0,
+          "completed_visits": 2,
+          "refused": 2,
+          "failed_claims": 0
+        },
+        "sam": {
+          "waiting_seconds": 1,
+          "completion_time_seconds": 121,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        }
+      }
+    }
+  },
+  "race": {
+    "refusal_percent": 0,
+    "conditions": {
+      "fixed": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 181,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 1,
+          "completion_time_seconds": 121,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "sam": {
+          "waiting_seconds": 122,
+          "completion_time_seconds": 242,
+          "rest_seconds": 0,
+          "walking_seconds": 0,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        }
+      },
+      "flexible": {
+        "alex": {
+          "waiting_seconds": 0,
+          "completion_time_seconds": 191,
+          "rest_seconds": 0,
+          "walking_seconds": 10,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "casey": {
+          "waiting_seconds": 1,
+          "completion_time_seconds": 131,
+          "rest_seconds": 0,
+          "walking_seconds": 10,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 0
+        },
+        "sam": {
+          "waiting_seconds": 121,
+          "completion_time_seconds": 261,
+          "rest_seconds": 0,
+          "walking_seconds": 20,
+          "completed_visits": 1,
+          "refused": 0,
+          "failed_claims": 1
+        }
+      }
+    }
+  }
+}
